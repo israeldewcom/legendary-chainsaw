@@ -1,0 +1,26 @@
+from enum import Enum
+
+
+class TaxCategory(str, Enum):
+    ADVERTISING = "advertising"
+    AUTO = "auto"
+    BANK_FEES = "bank_fees"
+    CHARITABLE = "charitable"
+    COMMISSIONS = "commissions"
+    COMPUTER = "computer"
+    CONTINUING_EDUCATION = "continuing_education"
+    CONTRACT_LABOR = "contract_labor"
+    DUES_SUBSCRIPTIONS = "dues_subscriptions"
+    INSURANCE = "insurance"
+    INTEREST = "interest"
+    LEGAL_PROFESSIONAL = "legal_professional"
+    MEALS = "meals"
+    OFFICE = "office"
+    RENT_LEASE = "rent_lease"
+    REPAIRS_MAINTENANCE = "repairs_maintenance"
+    SUPPLIES = "supplies"
+    TAXES_LICENSES = "taxes_licenses"
+    TRAVEL = "travel"
+    UTILITIES = "utilities"
+    WAGES = "wages"
+    OTHER = "other"
