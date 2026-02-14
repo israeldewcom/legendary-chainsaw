@@ -7,7 +7,7 @@ name = "taxflow-ai"
 version = "9.0.0"
 description = "TaxFlow AI Backend"
 authors = ["Your Name <you@example.com>"]
-
+package-mode = false
 [tool.poetry.dependencies]
 python = ">=3.12,<3.13"              # Exact Python range – no ambiguity
 fastapi = "*"                         # Latest version, whatever it is
