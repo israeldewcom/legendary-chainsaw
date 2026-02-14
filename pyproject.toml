@@ -1,0 +1,114 @@
+[build-system]
+requires = ["poetry-core>=1.9.1"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "taxflow-ai"
+version = "9.0.0"
+description = "AI‑powered tax categorization, OCR, affiliate program, subscription billing"
+authors = ["TaxFlow AI <dev@taxflow.ai>"]
+license = "Proprietary"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.6"
+uvicorn = { extras = ["standard"], version = "^0.34.0" }
+pydantic = "^2.10.3"
+pydantic-settings = "^2.6.0"
+sqlalchemy = "^2.0.36"
+asyncpg = "^0.30.0"
+alembic = "^1.14.1"
+redis = "^5.2.1"
+celery = "^5.4.0"
+httpx = "^0.28.1"
+python-jose = { extras = ["cryptography"], version = "^3.4.0" }
+passlib = { extras = ["argon2"], version = "^1.7.4" }
+python-multipart = "^0.0.20"
+openai = "^1.58.1"
+stripe = "^11.4.0"
+boto3 = "^1.35.87"
+tenacity = "^9.0.0"
+structlog = "^24.4.0"
+prometheus-client = "^0.21.1"
+opentelemetry-api = "^1.29.0"
+opentelemetry-sdk = "^1.29.0"
+opentelemetry-instrumentation-fastapi = "^1.29.0"
+opentelemetry-exporter-otlp = "^1.29.0"
+slowapi = "^0.1.9"
+pyotp = "^2.10.0"
+qrcode = "^8.0"
+email-validator = "^2.2.0"
+cryptography = "^44.0.0"
+pgvector = "^0.3.5"
+dishka = "^1.4.2"
+msgspec = "^0.19.0"
+aiosmtplib = "^3.0.2"
+jinja2 = "^3.1.4"
+click = "^8.1.7"
+python-dateutil = "^2.9.0.post0"
+sentry-sdk = "^2.18.0"
+pycountry = "^24.6.1"
+pandas = "^2.2.3"
+openpyxl = "^3.1.5"
+cachetools = "^5.5.0"
+aiocache = { extras = ["redis"], version = "^0.12.3" }
+pydash = "^8.0.4"
+phonenumbers = "^8.13.52"
+user-agents = "^2.2.0"
+brotli = "^1.1.0"
+python-magic = "^0.4.27"
+pillow = "^11.0.0"
+pdfplumber = "^0.11.5"
+celery-typed = "^0.3.0"
+httpx-oauth = "^0.13.0"
+stripe-webhooks = "^0.1.0"
+aiosqlite = "^0.20.0"
+mixpanel = "^4.10.0"
+elasticsearch = "^8.16.0"
+pyarrow = "^19.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-asyncio = "^0.25.0"
+pytest-cov = "^6.0.0"
+black = "^25.1.0"
+ruff = "^0.9.0"
+mypy = "^1.14.1"
+pre-commit = "^4.1.0"
+faker = "^33.3.0"
+factory-boy = "^3.3.3"
+pytest-mock = "^3.14.0"
+respx = "^0.21.2"
+pytest-xdist = "^3.6.1"
+pytest-benchmark = "^5.1.0"
+pytest-timeout = "^2.3.1"
+pytest-httpx = "^0.33.0"
+locust = "^2.32.6"
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+disallow_untyped_defs = true
+strict = true
+plugins = ["sqlalchemy.ext.mypy.plugin", "pydantic.mypy"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+select = ["E", "F", "W", "I", "N", "UP", "YTT", "ANN", "ARG", "B", "C4", "DTZ", "EM", "FBT", "ICN", "ISC", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "T20", "TRY", "UP", "YTT"]
+ignore = ["ANN101", "ANN102", "ANN401"]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401", "E402"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["backend"]
+env_files = [".env.test"]
+addopts = "-v --tb=short --strict-markers"
+markers = [
+    "slow: marks tests as slow",
+    "integration: marks tests as integration tests",
+    "load: marks load tests",
+]
