@@ -1,69 +1,60 @@
 [build-system]
-requires = ["poetry-core>=1.9.1"]
+requires = ["poetry-core>=1.9.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "taxflow-ai"
 version = "9.0.0"
-description = "AI‑powered tax automation platform"
-authors = ["TaxFlow AI <dev@taxflow.ai>"]
-license = "Proprietary"
-readme = "README.md"
+description = "TaxFlow AI Backend"
+authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.12"
-fastapi = "^0.115.8"                # Latest stable
-uvicorn = { extras = ["standard"], version = "^0.34.0" }
-pydantic = "^2.10.6"                 # Compatible with FastAPI
-pydantic-settings = "^2.7.1"
-sqlalchemy = "^2.0.38"               # Latest as of Feb 2026
-asyncpg = "^0.30.0"
-alembic = "^1.14.1"
-redis = "^5.2.1"
-celery = "^5.4.0"
-httpx = "^0.28.1"
-python-jose = { extras = ["cryptography"], version = "^3.4.0" }
-passlib = { extras = ["argon2"], version = "^1.7.4" }
-python-multipart = "^0.0.20"
-openai = "^1.61.1"                   # Latest as of Feb 2026
-stripe = "^11.5.0"                   # Latest
-boto3 = "^1.35.99"                   # Latest
-tenacity = "^9.0.0"
-structlog = "^24.4.0"
-prometheus-client = "^0.21.1"
-opentelemetry-api = "^1.29.0"
-opentelemetry-sdk = "^1.29.0"
-opentelemetry-instrumentation-fastapi = "^1.29.0"
-opentelemetry-exporter-otlp = "^1.29.0"
-slowapi = "^0.1.9"
-# ✅ CORRECTED: pyotp version 2.9.0 exists; 2.10.0 does not.
-pyotp = "^2.9.0"
-qrcode = "^8.0"
-email-validator = "^2.2.0"
-cryptography = "^44.0.1"             # Latest
-pgvector = "^0.3.6"                  # Latest
-aiosmtplib = "^3.0.2"
-jinja2 = "^3.1.5"                    # Latest
-sentry-sdk = "^2.20.0"               # Latest
-pandas = "^2.2.3"
-openpyxl = "^3.1.5"
-aiocache = { extras = ["redis"], version = "^0.12.3" }
-pillow = "^11.1.0"                   # Latest
-pdfplumber = "^0.11.5"
-httpx-oauth = "^0.13.0"
-mixpanel = "^4.10.0"
-pyarrow = "^19.0.1"                  # Latest
+python = ">=3.12,<3.13"              # Exact Python range – no ambiguity
+fastapi = "*"                         # Latest version, whatever it is
+uvicorn = { extras = ["standard"], version = "*" }
+pydantic = "*"
+pydantic-settings = "*"
+sqlalchemy = "*"
+asyncpg = "*"
+alembic = "*"
+redis = "*"
+celery = "*"
+httpx = "*"
+python-jose = { extras = ["cryptography"], version = "*" }
+passlib = { extras = ["argon2"], version = "*" }
+python-multipart = "*"
+openai = "*"
+stripe = "*"
+boto3 = "*"
+tenacity = "*"
+structlog = "*"
+prometheus-client = "*"
+# 🔥 OpenTelemetry – using the most basic meta-package
+opentelemetry-api = "*"
+opentelemetry-sdk = "*"
+opentelemetry-instrumentation = "*"   # This includes FastAPI instrumentation
+slowapi = "*"
+pyotp = "*"
+qrcode = "*"
+email-validator = "*"
+cryptography = "*"
+pgvector = "*"
+aiosmtplib = "*"
+jinja2 = "*"
+sentry-sdk = "*"
+pandas = "*"
+openpyxl = "*"
+aiocache = { extras = ["redis"], version = "*" }
+pillow = "*"
+pdfplumber = "*"
+httpx-oauth = "*"
+mixpanel = "*"
+pyarrow = "*"
 
-# 🔥 NO DEV DEPENDENCIES – they only cause conflicts.
-# If you need them locally, install with: poetry add --group dev <package>
+# 🔥 NO DEV DEPENDENCIES – only production runtime packages.
 
 [tool.mypy]
 python_version = "3.12"
 warn_return_any = true
 disallow_untyped_defs = true
 strict = true
-plugins = ["sqlalchemy.ext.mypy.plugin", "pydantic.mypy"]
-
-[tool.ruff]
-line-length = 100
-target-version = "py312"
