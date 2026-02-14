@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Frontend
+node_modules/
+dist/
+build/
+*.local
+
+# Backend
+alembic/versions/*.pyc
+alembic/versions/__pycache__/
+
+# Secrets
+*.pem
+*.key
+*.crt
+
+# Exports
+exports/
